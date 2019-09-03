@@ -70,7 +70,7 @@ size_t StatusFetcher::WriteCallback(char *contents, size_t size, size_t nmemb, v
 }
 
 int StatusFetcher::getMoistureLevel() {
-    int maxValue = 65;
+    int maxValue = 100;
     int realMoistureLevel = _moistureLevel * (10.0 / maxValue);
     return realMoistureLevel;
 }
