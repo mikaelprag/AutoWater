@@ -11,6 +11,7 @@ using namespace std;
 
 void printWaterMeter(int startX, int startY, int waterLevel);
 void printMoistureMeter(int startX, int startY, int moistureLevel);
+void printTimeLevel(string timeLevel);
 void printTimestamp();
 
 int main(int argc, char **argv)
@@ -38,8 +39,9 @@ int main(int argc, char **argv)
   while(true) {
       
       if(flower->fetchStatus()) {
-        printWaterMeter(10, 3, flower->getWaterLevel());
-        printMoistureMeter(30, 3, flower->getMoistureLevel());
+        printWaterMeter(10, 4, flower->getWaterLevel());
+        printMoistureMeter(30, 4, flower->getMoistureLevel());
+        printTimeLevel(flower->getTimeLevel());
         printTimestamp();
       }
       
@@ -96,6 +98,12 @@ void printMoistureMeter(int startX, int startY, int moistureLevel) {
   }
   move(currentRow++, startX - 5);
   addstr("Moisture level");
+}
+
+void printTimeLevel(string timeLevel) {
+  move(2,1);
+  addstr("Device time: ");
+  addstr(timeLevel.c_str());
 }
 
 void printTimestamp() {

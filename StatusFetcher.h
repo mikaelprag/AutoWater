@@ -23,6 +23,7 @@ class StatusFetcher
 private:
     int _waterLevel;
     int _moistureLevel;
+    string _timeLevel;
     
     const string _url = "http://water.local/status";
     static size_t WriteCallback(char *contents, size_t size, size_t nmemb, void *userp);
@@ -33,6 +34,7 @@ public:
     
     int getWaterLevel();
     int getMoistureLevel();
+    string getTimeLevel();
     
     bool fetchStatus();
 

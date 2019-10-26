@@ -48,6 +48,8 @@ bool StatusFetcher::fetchStatus() {
             
             string moistureLevel = Json::Value(root["moisture"]).asString();
             _moistureLevel = std::stoi(moistureLevel);
+
+            _timeLevel = Json::Value(root["time"]).asString();
             
             retVal = true;
         
@@ -87,4 +89,8 @@ int StatusFetcher::getWaterLevel() {
   int realWaterValue =  realWaterLevel / realWaterScale;
   
   return realWaterValue;
+}
+
+string StatusFetcher::getTimeLevel() {
+  return _timeLevel;
 }
